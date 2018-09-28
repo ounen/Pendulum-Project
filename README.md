@@ -1,2 +1,4 @@
 # Pendulum-Project
-To make the greatest pendulum on a cart ever
+## Goal
++ Write a Matlab simulation to balance a pendulum on a cart
++ Create a pendulum with real hardware
