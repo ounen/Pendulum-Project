@@ -1,17 +1,19 @@
 clc; clear all
 
-%x xdot theta thetadot
-x0 = [0; 0; pi/16; 0];
-tf = 10;
+
+%% DYNAMICS
+%x xdot theta thetadot IntegralOfError
+x0 = [0; 0; pi/4; 0; 0];
+tf = 6;
 M = 5;          % Cart Mass
 m = 4;          % Ball Mass
 f = 0;          % Rotational Friction
-g = 10;
-l = 1.5;          % Pendulum Length
+g = 10;         % Gravity
+l = 1.5;        % Pendulum Length
 
 [t x] = ode15s(@(t,x) PendulumMath(t,x,M,m,f,g,l), [0:0.01:tf], x0);
 
-%% Animation 
+%% ANIMATION
 fig1 = figure('Color','white')
 grid on
 axis equal 
