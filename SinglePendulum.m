@@ -3,11 +3,11 @@ clc; clear all
 
 %% DYNAMICS
 %x xdot theta thetadot IntegralOfError
-x0 = [0; 0; pi/4; 0; 0];
+x0 = [2; 0; pi/8; 0; 0];
 tf = 6;
 M = 5;          % Cart Mass
 m = 4;          % Ball Mass
-f = 0;          % Rotational Friction
+f = 0.01;          % Rotational Friction
 g = 10;         % Gravity
 l = 1.5;        % Pendulum Length
 
@@ -18,14 +18,12 @@ fig1 = figure('Color','white')
 grid on
 axis equal 
 % xlim([-2 2])
- ylim([-(l+0.5) (l+0.5)])
-
+ylim([-(l+0.5) (l+0.5)])
 
 for i = 1:length(t)
     time = text(x(i,1) - 0.2, l+0.25,['Time: ', num2str(i/100)]);
     angle = text(x(i,1) - 0.2, l+0.5,['Angle: ', num2str(x(i,3)*180/pi)]);
 
-    
     % Define Points
     cart = [x(i,1) 0];
     ball = l*[cos(x(i,3) - pi/2)   -sin(x(i,3) - pi/2)] + cart;

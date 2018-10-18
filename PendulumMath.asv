@@ -15,8 +15,7 @@ Q = [100    0       0      0;
      0      5     0      0;
      0      0       30     0;
      0      0       0      1]
-R = 0.001;
-
+R = 0.00001;
 K = lqr(A,B,Q,R)
 
 % User Input
@@ -35,7 +34,8 @@ intError = x(5)
 %F = -( kp*error + ki*intError + kd*errorDot )
 
 % LQR Implementation
-F = -( K(1)*x(1) + K(2)*x(2) + K(3)*x(3) + K(4)*x(4) )
+%F = -( K(1)*x(1) + K(2)*x(2) + K(3)*x(3) + K(4)*x(4) )
+F = 0
 
 % Dynamics of System
 pos = x(2);
